@@ -12,4 +12,4 @@
 
 |Name|Badge|
 |--|--|
-|Festus 6 Welcome Notebook|[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/th3y3ti/festus6/master)|
+|Festus 6 Welcome Notebook|[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/th3y3ti/festus6/master?filepath=welcome.ipynb)|
