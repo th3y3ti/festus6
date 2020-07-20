@@ -9,3 +9,7 @@
 - [ ] Show how to upload a file
 - [ ] Show the Jupyter website and the Jupyter tutorials/walkthroughs
 - [ ] Show some of the other cool features using the TaHiTI wfms git lab (this is what we are going to create)
+
+|Name|Badge|
+|--|--|
+|Festus 6 Welcome Notebook|[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/th3y3ti/festus6/master)|
