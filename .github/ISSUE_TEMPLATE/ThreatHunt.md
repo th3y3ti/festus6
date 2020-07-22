@@ -1,12 +1,12 @@
 ---
 name: Threat Hunt
 about: for tracking the progress of a hunt
-title: Run <playbook name>
+title: Hunt for xyz
 labels: threat hunt
 assignees: ''
 ---
 Hunt Name: <Hunt for xyz>
-
+Hunt Description: <Brief description of what will be hunted for>
 Trigger: <What triggered this hunt>
 
 **Acceptance Criteria**  
