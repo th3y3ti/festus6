@@ -8,7 +8,14 @@ BITSAdmin is a command line tool used to create and manage BITS Jobs. [1]
 
 ## Check existing saved searches, watchlists, etc
 - Powershell BITSAdmin Downloader
-- https://redcloak.secureworks.com/portal/countermeasures/watchlists/2335c235-a96f-4d5c-a5a1-b28a3865980a
+
+|Field|Condition|Term|
+|---|---|---|
+|image_path|Contains|powershell.exe|
+|commandline|Contains|BitsTransfer|
+|commandline|Does Not Contain|-retryinterval|
+|commandline|Does Not Contain|Remove-BitsTransfer|
+|commandline|Does Not Contain|Get-BitsTransfer|
 
 - BITSadmin Suspicious Job Completion
 - https://redcloak.secureworks.com/portal/countermeasures/watchlists/fc36c80b-e86a-458a-b7c6-408a837c95a5
