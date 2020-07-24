@@ -7,7 +7,9 @@ Adversaries are abusing BITS
 BITSAdmin is a command line tool used to create and manage BITS Jobs. [1]
 
 ## Check existing saved searches, watchlists, etc
-- Powershell BITSAdmin Downloader
+
+## Analytics
+- Analytic: Powershell BITSAdmin Downloader
 
 |Field|Condition|Term|
 |---|---|---|
@@ -17,42 +19,44 @@ BITSAdmin is a command line tool used to create and manage BITS Jobs. [1]
 |commandline|Does Not Contain|Remove-BitsTransfer|
 |commandline|Does Not Contain|Get-BitsTransfer|
 
-- BITSadmin Suspicious Job Completion
-- https://redcloak.secureworks.com/portal/countermeasures/watchlists/fc36c80b-e86a-458a-b7c6-408a837c95a5
+- Analytic: Suspicious stop of Background Intelligent Transfer (BITS) service
 
-- Suspicious BITSadmin Command
-- https://redcloak.secureworks.com/portal/countermeasures/watchlists/6344866e-a022-4425-bff0-7a11c4185614
+|Field|Condition|Term|
+|---|---|---|
+|image_path|Contains|net.exe|
+|commandline|Contains|BitsTransfer|
+|commandline|Contains|bits|
+|commandline|Contains|stop|
+|commandline|Contains|/y|
 
-- Bitsadmin Job Will Launch Executable
-- https://redcloak.secureworks.com/portal/countermeasures/watchlists/bf16fb0e-89d7-47cb-be35-7ce142a288e2
+- Analytic: BITSAdmin Uploader
 
-- BITSadmin File Transfer
-- https://redcloak.secureworks.com/portal/countermeasures/watchlists/d02f4bee-c97f-413a-8eb4-2ffd3c6e9b40
+|Field|Condition|Term|
+|---|---|---|
+|image_path|Contains|bitsadmin.exe|
+|commandline|Contains|/upload|
 
-- Suspicious BITSadmin Command 2
-- https://redcloak.secureworks.com/portal/countermeasures/watchlists/dfc8a09c-ce3d-40dd-b7c4-924a57dae9f3
+- Analytic: BITSAdmin File Download
 
-- BITSadmin Command Sending Host Information
-- https://redcloak.secureworks.com/portal/countermeasures/watchlists/1066378c-a6f2-40ed-9129-0d6b457425e9
+|Field|Condition|Term|
+|---|---|---|
+|image_path|Contains|bitsadmin.exe|
+|commandline|Contains|/create|
+|commandline|Contains|/addfile|
 
-- BITSAdmin Uploader
-- https://redcloak.secureworks.com/portal/countermeasures/watchlists/210cd919-2b19-42d9-b964-db5282dc0997
+- Analytic: BITSadmin file transfer 2
 
-- BITSAdmin File Download
-- https://redcloak.secureworks.com/portal/countermeasures/watchlists/8c4b6b3a-2715-421e-a0b1-0a982901e4af
+|Field|Condition|Term|
+|---|---|---|
+|image_path|Contains|cmd.exe|
+|commandline|Contains|bitsadmin|
+|commandline|Contains|/transfer|
+|commandline|Does Not Contain|"Known Good"|
 
-- BITSadmin file transfer 2
-- https://redcloak.secureworks.com/portal/countermeasures/watchlists/9f35af58-2660-4b6e-aead-6a9fad8a9f15
-
-- Suspicious stop of Background Intelligent Transfer (BITS) service
-- https://redcloak.secureworks.com/portal/countermeasures/watchlists/37db7cd7-b029-4140-9948-8a80fb7f2f01
-
-## Analytic 1 - Investigate Processes and Commandlines
-`image_path:bitsadmin.exe AND -commandline:(list OR getieproxy OR reset OR setieproxy OR info)`
-
-`commandline:"bitstransfer" AND -commandline:"allusers"`
-
-`commandline:SetNotifyCmdLine`
+## Leucene Queries
+- `image_path:bitsadmin.exe AND -commandline:(list OR getieproxy OR reset OR setieproxy OR info)`
+- `commandline:"bitstransfer" AND -commandline:"allusers"`
+- `commandline:SetNotifyCmdLine`
 
 ## Reference(s)
 - https://lolbas-project.github.io/lolbas/Binaries/Bitsadmin/
