@@ -6,13 +6,19 @@ Initial or refined hypothesis.
 ## Description
 The goal of this playbook is to review suspicious `certutil` usage.
 
-## Review existing watchlists
-  - https://redcloak.secureworks.com/portal/countermeasures/watchlists/b139ec92-224b-4f50-b1d8-f5ff380ea454
-  - https://redcloak.secureworks.com/portal/countermeasures/watchlists/d00204cc-eb0a-4cbf-bb28-723d69015ae9
-  - https://redcloak.secureworks.com/portal/countermeasures/watchlists/17f805a5-2691-4c25-b172-a8d2fa7e161a
-  - https://redcloak.secureworks.com/portal/countermeasures/watchlists/e2cb5824-677e-4c0c-ada3-08112f02da5b
-  - https://redcloak.secureworks.com/portal/countermeasures/watchlists/3edd36c4-4d95-4c40-813e-25e10662fd5e
-  - https://redcloak.secureworks.com/portal/countermeasures/watchlists/11411a9e-9eef-4cf1-a482-c429464db68a
+## Analytics 
+
+#### Powershell Using certutil to Add Certificate
+Description: A process event activity associated with Powershell using certutil to add a certificate to a certificate store was identified. The presence of this activity may indicate that malware is running on the system.
+
+|Field|Condition|Term|
+|---|---|---|
+|parent_image_path|Contains|powershell.exe|
+|image_path|Contains|certutil.exe|
+|commandline|Contains|addstore|
+|commandline|Contains|TrustedPublisher|
+|commandline|Contains|root|
+|commandline|Does Not Contain|ccmcache|
 
 ## Analytic 1
 `image_path:certutil.exe AND (commandline:urlcache OR commandline:url OR commandline:ping)`
